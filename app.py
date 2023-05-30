@@ -3,7 +3,7 @@ import pandas  as  pd
 from math import radians, cos, sin, asin, sqrt
 
 # read csv
-data = pd.read_csv("bahnhofe.csv.CSV", delimiter=";", decimal=",")
+data = pd.read_csv("data.CSV", delimiter=";", decimal=",")
 
 # only select Fernverkehrsbahnhöfe and relevant columns
 cols = ["NAME", "DS100", "Laenge", "Breite"]
@@ -16,9 +16,7 @@ def haversine(longitude1, latitude1, longitude2, latitude2, metric="km"):
     on the earth (specified in decimal degrees)
     """
     # convert decimal degrees to radians 
-    print([longitude1, latitude1, longitude2, latitude2])
     longitude1, latitude1, longitude2, latitude2 = map(radians, [longitude1, latitude1, longitude2, latitude2])
-
 
     # haversine formula 
     dlon = longitude2 - longitude1 
@@ -59,5 +57,5 @@ def calculate_distance(string_1, string_2):
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
